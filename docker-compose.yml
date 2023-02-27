@@ -1,0 +1,129 @@
+version: '3.7'
+
+networks:
+    ticketposs:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.20.0.0/24
+
+services:
+    nginx:
+        image: nginx:stable-alpine
+        container_name: ticketposs_nginx
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        ports:
+            - 8888:80 #http app port
+            - 4433:443 #https app port
+            - "8080:8080" #phpmyadmin port
+        volumes:
+            - ./src:/var/www/html
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+
+        depends_on:
+            - php
+            - mysql
+        extra_hosts:
+            - "host.docker.internal:127.0.0.1"
+            - "127.0.0.1:127.0.0.1"
+            # - "ticketpos:127.0.0.1"
+
+        networks:
+            ticketposs:
+                # ipv4_address: 172.20.0.20
+
+    php:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: ticketposs_php
+
+        volumes:
+            - ./src:/var/www/html
+        ports:
+            - "9000:9000"
+        networks:
+            ticketposs:
+
+
+    mysql:
+        build:
+            context: ./mysql
+            dockerfile: Dockerfile
+        container_name: ticketposs_mysql
+        command: --init-file /data/application/init.sql
+        volumes:
+            - ./mysql/init.sql:/data/application/init.sql
+            - ./mysql/my.cnf:/etc/mysql/my.cnf
+        restart: always
+        ports:
+            - "33061:3306"
+        environment:
+            MYSQL_DATABASE: ticketposs
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_ROOT_HOST: "0.0.0.0"
+            MYSQL_ALLOW_EMPTY_PASSWORD: true
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        extra_hosts:
+            - "host.docker.internal:127.0.0.1"
+            - "127.0.0.1:127.0.0.1"
+
+        networks:
+            ticketposs:
+                # ipv4_address: 172.20.0.4
+
+    composer:
+        image: composer:latest
+        user: "1000:1000"
+        container_name: ticketposs_composer
+        volumes:
+            - ./src:/var/www/html
+        working_dir: /var/www/html
+        depends_on:
+            - php
+        networks:
+            - ticketposs
+
+    npm:
+        image: node:18
+        container_name: ticketposs_npm
+        user: "1000:1000"
+        volumes:
+            - ./src:/var/www/html
+        working_dir: /var/www/html
+        entrypoint: [ 'npm' ]
+
+    artisan:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: ticketposs_artisan
+
+        volumes:
+            - ./src:/var/www/html
+        depends_on:
+            - mysql
+        working_dir: /var/www/html
+        entrypoint: [ 'php', '/var/www/html/artisan' ]
+        networks:
+            ticketposs: # ipv4_address: 172.20.0.5
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        environment:
+            PMA_HOST: mysql
+        networks:
+            ticketposs: # ipv4_address: 172.20.0.6
+    redis:
+        image: 'redis:alpine'
+        container_name: ticketposs_redis
+        restart: on-failure
+        networks:
+            - ticketposs
+
+        ports:
+            - '6379:6379'

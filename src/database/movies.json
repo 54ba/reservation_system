@@ -1,0 +1,142 @@
+[
+  {
+    "title": "The Catalyst",
+    "description": "A reclusive inventor discovers a groundbreaking technology that could change the world.",
+    "release_year": 2021,
+    "director": "John Smith",
+    "casting": ["Tom Hanks", "Emma Stone", "Mark Ruffalo"]
+  },
+  {
+    "title": "The Prodigy",
+    "description": "A young genius uncovers a dark secret that threatens to destroy everything he knows.",
+    "release_year": 2019,
+    "director": "Jane Doe",
+    "casting": ["Saoirse Ronan", "Timothee Chalamet", "Michelle Pfeiffer"]
+  },
+  {
+    "title": "The Oracle",
+    "description": "A mysterious clairvoyant prophesizes the fate of a dystopian society.",
+    "release_year": 2020,
+    "director": "David Lynch",
+    "casting": ["Cate Blanchett", "Joaquin Phoenix", "Jared Leto"]
+  },
+  {
+    "title": "The Sentinel",
+    "description": "A solitary programmer becomes the last line of defense against a looming cyber-attack.",
+    "release_year": 2018,
+    "director": "Christopher Nolan",
+    "casting": ["Leonardo DiCaprio", "Jennifer Lawrence", "Idris Elba"]
+  },
+  {
+    "title": "The Nexus",
+    "description": "A brilliant computer scientist creates an AI that challenges the very essence of human existence.",
+    "release_year": 2022,
+    "director": "Ava DuVernay",
+    "casting": ["Viola Davis", "Michael B. Jordan", "Lupita Nyong'o"]
+  },
+  {
+    "title": "The Circuit",
+    "description": "A rogue hacker navigates the shadowy underworld of cyberspace to uncover a sinister conspiracy.",
+    "release_year": 2016,
+    "director": "David Fincher",
+    "casting": ["Rooney Mara", "Jesse Eisenberg", "Benedict Cumberbatch"]
+  },
+  {
+    "title": "The Network",
+    "description": "A group of outcasts band together to fight against a corrupt government and its surveillance state.",
+    "release_year": 2017,
+    "director": "Alfonso Cuaron",
+    "casting": ["Emma Watson", "Daniel Radcliffe", "Rupert Grint"]
+  },
+  {
+    "title": "The Code",
+    "description": "A math prodigy cracks an unbreakable code, but with great power comes great danger.",
+    "release_year": 2015,
+    "director": "Darren Aronofsky",
+    "casting": ["Natalie Portman", "Joaquin Phoenix", "Christian Bale"]
+  },
+  {
+    "title": "The Algorithm",
+    "description": "A data scientist develops an algorithm with the power to predict human behavior, with unforeseen consequences.",
+    "release_year": 2014,
+    "director": "Spike Jonze",
+    "casting": ["Joaquin Phoenix", "Scarlett Johansson", "Amy Adams"]
+  },
+  {
+    "title": "The Interface",
+    "description": "A tech company's groundbreaking new product allows users to enter a virtual reality world, but at what cost?",
+    "release_year": 2023,
+    "director": "Denis Villeneuve",
+    "casting": ["Timothée Chalamet", "Zendaya", "Oscar Isaac"]
+    },
+    {
+    "title": "The Encryption",
+    "description": "A brilliant hacker must navigate a maze of deception and betrayal to uncover the truth behind a high-stakes cyber attack.",
+    "release_year": 2019,
+    "director": "David Ayer",
+    "casting": ["Will Smith", "Margot Robbie", "Idris Elba"]
+    },
+    {
+    "title": "The Ascension",
+    "description": "A young prodigy discovers the key to unlocking unlimited power, but at a terrible cost.",
+    "release_year": 2022,
+    "director": "James Cameron",
+    "casting": ["Millie Bobby Brown", "Robert Pattinson", "Angelina Jolie"]
+    },
+    {
+    "title": "The Protocol",
+    "description": "A former hacker is forced to come out of retirement to stop a deadly virus from spreading.",
+    "release_year": 2017,
+    "director": "Paul Greengrass",
+    "casting": ["Matt Damon", "Julia Stiles", "Alicia Vikander"]
+    },
+    {
+    "title": "The Node",
+    "description": "A brilliant programmer creates a self-aware AI that has the power to change the course of human history.",
+    "release_year": 2020,
+    "director": "Sofia Coppola",
+    "casting": ["Kirsten Dunst", "Bill Murray", "Rashida Jones"]
+    },
+    {
+    "title": "The Firewall",
+    "description": "A team of elite hackers race against time to stop a cyber attack that could bring down the entire global network.",
+    "release_year": 2018,
+    "director": "Ridley Scott",
+    "casting": ["Matt Damon", "Jessica Chastain", "Kate Mara"]
+    },
+    {
+    "title": "The Catalyst II",
+    "description": "The inventor of a revolutionary technology must fight to keep it out of the wrong hands.",
+    "release_year": 2024,
+    "director": "Steven Spielberg",
+    "casting": ["Meryl Streep", "Tom Hardy", "Tilda Swinton"]
+    },
+    {
+    "title": "The Prodigy II",
+    "description": "A young genius must confront his own demons to unlock the secrets of the universe.",
+    "release_year": 2025,
+    "director": "Chloe Zhao",
+    "casting": ["Zendaya", "Lucas Hedges", "Rachel Weisz"]
+    },
+    {
+    "title": "The Oracle II",
+    "description": "The fate of the world rests in the hands of a clairvoyant who must face her own destiny.",
+    "release_year": 2026,
+    "director": "Kathryn Bigelow",
+    "casting": ["Angelina Jolie", "Brad Pitt", "Cate Blanchett"]
+    },
+    {
+    "title": "The Sentinel II",
+    "description": "A lone programmer must save the world from a new cyber threat.",
+    "release_year": 2027,
+    "director": "Christopher Nolan",
+    "casting": ["Timothée Chalamet", "Saoirse Ronan", "Oscar Isaac"]
+    },
+    {
+    "title": "The Nexus II",
+    "description": "A brilliant scientist must grapple with the consequences of her creation.",
+    "release_year": 2028,
+    "director": "Ava DuVernay",
+    "casting": ["Lupita Nyong'o", "Michael B. Jordan", "Tessa Thompson"]
+    }
+    ]

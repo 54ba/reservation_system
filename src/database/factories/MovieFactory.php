@@ -25,7 +25,7 @@ class MovieFactory extends Factory
             'casting' => $this->faker->name() . ', ' . $this->faker->name(),
         ];
     }
-    public function withMovieData(array $movie)
+    public function withRelatedData(array $movie)
     {
         return $this->state([
             'title' => $movie['title'],

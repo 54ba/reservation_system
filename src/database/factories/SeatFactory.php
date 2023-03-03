@@ -24,31 +24,22 @@ class SeatFactory extends Factory
     public function definition()
     {
 
-        $hallIds = Hall::all()->pluck('id');
-        $movieIds = Movie::all()->pluck('id');
-        $showtimeIds = Showtime::all()->pluck('id');
 
         return [
-            'hall_id' => $this->faker->randomElement($hallIds),
-            'movie_id' => $this->faker->randomElement($movieIds),
-            'showtime_id' => $this->faker->randomElement($showtimeIds),
-            'seat_number' => $this->faker->unique()->numberBetween(1, 100),
+            'hall_id' => function (array $attributes) {
+                return $attributes['hall_id'] ?? Hall::inRandomOrder()->first()->id;
+            },
+            'movie_id' => function (array $attributes) {
+                return $attributes['movie_id'] ?? Movie::inRandomOrder()->first()->id;
+            },
+            'showtime_id' => function (array $attributes) {
+                return $attributes['showtime_id'] ?? Showtime::inRandomOrder()->first()->id;
+            },
+            'seat_number' => $this->faker->numberBetween(1, 60),
             'row' => $this->faker->randomLetter,
             'status' => $this->faker->randomElement(['available', 'reserved']),
         ];
     }
 
-    public function withMovieData(array $movie, array $hall, array $showtime)
-    {
-        return $this->state([
-            'name' => $this->faker->word,
-            'movie_id' => $movie['id'],
-            'hall_id' => $hall['id'],
-            'showtime_id' => $showtime['id'],
-            'seat_number' => $this->faker->unique()->numberBetween(1, 100),
-            'row' => $this->faker->randomLetter,
-            'status' => $this->faker->randomElement(['available', 'reserved']),
 
-        ]);
-    }
 }

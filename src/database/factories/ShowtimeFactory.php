@@ -19,25 +19,17 @@ class ShowtimeFactory extends Factory
      */
     public function definition()
     {
-        $hallIds = Hall::all()->pluck('id');
-        $movieIds = Movie::all()->pluck('id');
 
         return [
-            'hall_id' => $this->faker->randomElement($hallIds),
-            'movie_id' => $this->faker->randomElement($movieIds),
+            'hall_id' => function (array $attributes) {
+                return $attributes['hall_id'] ?? Hall::inRandomOrder()->first()->id;
+            },
+            'movie_id' => function (array $attributes) {
+                return $attributes['movie_id'] ?? Movie::inRandomOrder()->first()->id;
+            },
             'date' => $this->faker->date,
             'time' => $this->faker->time,
         ];
     }
-    public function withMovieData(array $movie, array $hall)
-    {
-        return $this->state([
-            'name' => $this->faker->word,
-            'movie_id' => $movie['id'],
-            'hall_id' => $hall['id'],
-            'date' => $this->faker->date,
-            'time' => $this->faker->time,
 
-        ]);
-    }
 }

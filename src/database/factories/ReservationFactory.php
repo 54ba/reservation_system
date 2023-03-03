@@ -24,31 +24,26 @@ class ReservationFactory extends Factory
      */
     public function definition()
     {
-        $hallIds = Hall::all()->pluck('id');
-        $movieIds = Movie::all()->pluck('id');
-        $showtimeIds = Showtime::all()->pluck('id');
-        $seatsIds = Seat::all()->pluck('id');
+
 
         return [
-            'movie_id' => $this->faker->randomElement($movieIds),
-            'hall_id' => $this->faker->randomElement($hallIds),
-            'showtime_id' => $this->faker->randomElement($showtimeIds),
-            'seat_id' => $this->faker->randomElement($seatsIds),
+            'hall_id' => function (array $attributes) {
+                return $attributes['hall_id'] ?? Hall::inRandomOrder()->first()->id;
+            },
+            'movie_id' => function (array $attributes) {
+                return $attributes['movie_id'] ?? Movie::inRandomOrder()->first()->id;
+            },
+            'showtime_id' => function (array $attributes) {
+                return $attributes['showtime_id'] ?? Showtime::inRandomOrder()->first()->id;
+            },
+            'seat_id' => function (array $attributes) {
+                return $attributes['seat_id'] ?? Seat::inRandomOrder()->first()->id;
+            },
             'customer_name' => $this->faker->name,
             'customer_email' => $this->faker->email,
         ];
     }
-    public function withMovieData(array $movie, array $hall, array $showtime, array $seat)
-    {
-        return $this->state([
-            'movie_id' => $movie['id'],
-            'hall_id' => $hall['id'],
-            'showtime_id' => $showtime['id'],
-            'seat_id' =>  $seat['id'],
-            'customer_name' => $this->faker->name,
-            'customer_email' => $this->faker->email,
-        ]);
-    }
+
 }
 
 

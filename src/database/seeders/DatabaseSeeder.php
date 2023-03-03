@@ -10,7 +10,6 @@ use App\Models\Hall;
 use App\Models\Seat;
 use App\Models\Reservation;
 
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -26,11 +25,41 @@ class DatabaseSeeder extends Seeder
         $movies = json_decode($json, true);
 
         foreach ($movies as $movie) {
-            Movie::factory()->count(1)->withMovieData($movie)->create();
-            Hall::factory()->count(10)->withMovieData($movie)->create();
-            Showtime::factory()->count(10)->withMovieData($movie)->create();
-            Seat::factory()->count(10)->withMovieData($movie)->create();
-            Reservation::factory()->count(10)->withMovieData($movie)->create();
+            $movie_r = Movie::factory()->count(1)->withRelatedData($movie)->create();
+            $movie_id = $movie_r->pluck('id')->first();
+
+            $hall_ids = Hall::factory()->count(4)->create(['movie_id' => $movie_id])->pluck('id');
+
+            foreach ($hall_ids as $hall_id) {
+
+                $showtime_ids =Showtime::factory()->count(4)
+                ->create(
+                    ['movie_id' => $movie_id,
+                     'hall_id' => $hall_id
+                    ])->pluck('id');
+
+                    foreach($showtime_ids as $showtime_id)
+                    {
+                        $seat_ids = Seat::factory()->count(10)
+                        ->create(
+                            ['movie_id' => $movie_id,
+                             'hall_id' => $hall_id,
+                             'showtime_id' => $showtime_id
+                            ])->pluck('id');
+                            // foreach($seat_ids as $seat_id)
+                            // {
+                                // Reservation::factory()->count(1)
+                                // ->create(
+                                //     ['movie_id' => $movie_id,
+                                //      'hall_id' => $hall_id,
+                                //      'showtime_id' => $showtime_id,
+                                //      'seat' => $seat
+                                //     ]);
+
+                            // }
+                    }
+            }
+
 
         }
 

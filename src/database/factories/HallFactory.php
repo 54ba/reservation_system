@@ -17,21 +17,14 @@ class HallFactory extends Factory
      */
     public function definition()
     {
-        $movieIds = Movie::all()->pluck('id');
 
         return [
             'name' => $this->faker->word,
-            'movie_id' => $this->faker->randomElement($movieIds),
-
+            'movie_id' => function (array $attributes) {
+                return $attributes['movie_id'] ?? Movie::inRandomOrder()->first()->id;
+            },
 
         ];
     }
 
-    public function withMovieData(array $movie)
-    {
-        return $this->state([
-            'name' => $this->faker->word,
-            'movie_id' => $movie['id']
-        ]);
-    }
 }

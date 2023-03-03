@@ -4,7 +4,7 @@ Ticketposs
 
 <div align="center">
 
-> Cinema tickets POS (poin of sale) running on NGINX/https using VueJS, Laravel and docker 
+> Cinema tickets POS (point of sale) running on NGINX/https using VueJS, Laravel and docker 
 
 </div>
 
@@ -22,59 +22,70 @@ Ticketposs
 
 ### In progress
 <ul>
-    <li>Finish seeders</li>
-  <li>Complete UNIT testing </li>
-  <li>redesign UI - Vue and the UX </li>
-  <li>Redis cache</li>
-  <li>implement simple Authentication with just a password and variable names(sessions)</li>
+
+  <li> <input type="checkbox" disabled checked /> <del>Finish seeders</del> </li>
+  <li> <input type="checkbox" disabled /> Complete UNIT testing </li>
+  <li> <input type="checkbox" disabled /> redesign UI - Vue and the UX </li>
+  <li> <input type="checkbox" disabled /> Redis queue</li>
+  <li> <input type="checkbox" disabled /> implement simple Authentication with just a password and variable names(sessions)</li>
 </ol>
 
 ---	
 ## 1. Getting Started
 
 
-
-
 ### Using Docker
 
 ##### 1st time only
-```sh
+```
 docker-compose up -d --build 
 ```
 
 ##### 1. Installing Dependencies 
 
-```sh
+```
 docker-compose up -d
-docker-compose run composer install
+docker-compose run composer install -n
 docker-compose run npm install
 ```
 ##### 2. Building Assets For Development
 
-```sh
+```
 docker-compose run npm run dev
 ```
 
 ##### 3. Migrate and Seed MYSQL DB with Laravel CLI
 
-```sh
+```
 docker-compose run artisan migrate
 docker-compose run artisan db:seed
 ```
 
 ---	
 ### Manual Without Docker
-
-##### 1. Create .env on linux 
+```sh
+cd src/
 ```
-cp -a .env.example .env 
-```
+##### 1. Installing Dependencies
 
-##### 2. Installing Dependencies
 ```
 composer install
 npm install
 ```
+
+##### 2. Create .env 
+
+#####  Using Composer run commands
+
+```
+composer post-root-package-install
+```
+
+###### Using CLI Linux
+```sh
+cp -a .env.example .env 
+```
+
 ##### 3. Migrating and Seeding MYSQL DB
 
 ```

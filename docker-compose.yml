@@ -5,8 +5,8 @@ networks:
         driver: bridge
         ipam:
             driver: default
-            config:
-                - subnet: 172.20.0.0/24
+            # config:
+            # - subnet: 172.20.0.0/24
 
 services:
     nginx:
@@ -22,6 +22,7 @@ services:
         volumes:
             - ./src:/var/www/html
             - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./nginx/ssl:/etc/nginx/conf.d/ssl
 
         depends_on:
             - php
@@ -89,7 +90,7 @@ services:
             - ticketposs
 
     npm:
-        image: node:18
+        image: node:latest
         container_name: ticketposs_npm
         user: "1000:1000"
         volumes:
@@ -113,6 +114,7 @@ services:
             ticketposs: # ipv4_address: 172.20.0.5
     phpmyadmin:
         image: phpmyadmin
+        container_name: ticketposs_phpmyadmin
         restart: always
         environment:
             PMA_HOST: mysql

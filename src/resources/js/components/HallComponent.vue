@@ -1,20 +1,19 @@
 <template>
-    <div id="halls" class="card m-3">
-      <div class="card-body">
+    <li class="list-group-item">
         <h5 class="card-title">{{ hall.name }}</h5>
-        <button class="btn btn-primary" @click="selectHall">Select</button>
-      </div>
-    </div>
-  </template>
+        <button class="btn btn-yelloo" @click="selectHall">Select</button>
+    </li>
+</template>
 
-  <script>
-  export default {
+<script>
+export default {
     props: ['hall'],
     methods: {
-      selectHall() {
-        this.$emit('childHallSelected', this.hall)
-      }
+        selectHall() {
+            this.$emit('childHallSelected', this.hall)
+        },
+
     }
-  }
-  </script>
+}
+</script>
 

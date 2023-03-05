@@ -1,0 +1,278 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+  body {
+    background: #F9F7E8;
+    color: #1B1D1C;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.btn-yelloo{
+    background-color: #F5C518;
+	color: #1B1D1C;
+}
+
+
+h1 {
+	margin: 0;
+	font-size: 2.5em;
+}
+
+
+
+h2 {
+	margin: 0 0 10px 0;
+	font-size: 1.5em;
+}
+
+ul {
+    padding: 0;
+    padding-inline-start: 0px;
+}
+
+li
+{
+    border: 0;
+}
+
+.action-button{
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #F5C518;
+	color: #1B1D1C;
+	text-decoration: none;
+	border-radius: 4px;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.action-button:hover {
+	background-color: #F5C518;
+    color: #F9F7E8;
+
+}
+
+
+.app{
+    margin: 70px;
+
+}
+
+
+/* navbar */
+#navbarNav{
+    display: flex;
+    background-color: #EFE8D8;
+
+}
+#navbarNav li {
+    text-align: center;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar-nav {
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.nav-item {
+  margin-right: 10px;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: #F5C518;
+  border-radius: 5px;
+}
+
+
+/* lef panel */
+
+
+.left-panel{
+    padding: 0;
+}
+
+
+
+.list-group-item{
+    border-bottom: 1px solid #D9D7C6;
+    background-color: rgba(255,255,255,0%);
+
+}
+/* movie card */
+
+.movies-list {
+  overflow: auto;
+}
+
+.movies-list ul {
+
+  list-style: none;
+}
+
+.movies-list li {
+  margin-right: 10px;
+  border-bottom: 1px solid #D9D7C6;
+}
+
+.movies-list li:hover {
+    background-color: #F5C518;
+  }
+
+
+
+#movie-count {
+    vertical-align: baseline;
+    outline: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: left;
+
+}
+
+#movie-count p{
+    margin: 0;
+    vertical-align: baseline;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 20px 24px;
+    text-align: left;
+
+}
+#movie-count span{
+    padding: 10px;
+
+}
+.card {
+    width: 100% !important;
+    margin: 0  !important;
+    /* display: inline-block  !important; */
+    border: 0;
+    border-radius: 0;
+    background-color: #EFE8D8;
+}
+
+
+
+/* .movie-card  {
+
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: left;
+} */
+
+/* movies */
+#movies{
+    cursor: pointer;
+}
+#movies:hover{
+    cursor: pointer;
+    background-color: #F5C518;
+}
+
+.selected_movie_card #movies{
+    background-color: #F5C518;
+
+}
+
+/* halls */
+#halls
+{
+    width: 10rem !important;
+    margin: 1rem !important;
+}
+/* seats */
+#seats
+{
+    width: 10rem !important;
+    margin: 1rem !important;
+}
+
+.bgcover-1{
+    /* position: relative; */
+    /* height: 100%; */
+    /* background-size: cover; */
+    /* background-image: */
+    /* linear-gradient(180deg, rgb(250 104 255 / 30%) 0%, rgb(244 175 66) 100%),  */
+    /* url(https://mdbootstrap.com/img/Photos/Others/images/76.jpg); */
+
+    /* linear-gradient(-180deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+    /* linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(248, 246, 246, 0.73)), */
+
+    /* background-size: 400% 400%; */
+	/* animation: gradient 15s ease infinite; */
+	/* height: 100vh; */
+}
+.bgcover-2{
+    /* position: relative; */
+    /* height: 100%;
+    background-size: 200% 200%;
+    background-size: cover; */
+    /* background-image: */
+
+    /* linear-gradient(-180deg, #19059140 0%, rgb(43 22 110 / 77%) 100%),  */
+    /* url(https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg); */
+
+
+      /* linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1), */
+    /* linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(248, 246, 246, 0.73)), */
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+/* movie details */
+
+.poster img{
+    /* background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+    height: 100vh; */
+    /* width: 10%; */
+
+}
+
+
+.movie-details {
+
+  margin-bottom: 10px;
+}
+
+.movie-details .container-fluid{
+    padding: 0;
+}
+.movie-details .row>*{
+    padding-right: 0;
+}
+
+
+
+

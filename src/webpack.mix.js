@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/main.js', 'public/dist/js')
+    .copy('resources/css/main.css', 'public/dist/css')
     .copy('node_modules/bootstrap/dist/css/bootstrap.css', 'public/dist/css/bootstrap.css')
     .version()
     .vue();

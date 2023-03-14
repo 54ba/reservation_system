@@ -22,21 +22,35 @@ class ReceptionistController extends Controller
         // $movies = dispatch(new HandleMovieData());
         // $movies = Movie::all();
 
-        $movies = Movie::with('showtimes', 'halls', 'seats')->get();
+        $movies = Movie::paginate(20);
 
 
+
+        $movies_data = $movies->all();
 
         return response()->json([
-            'movies' => $movies,
+            'movies' => $movies_data,
+            'total' => $movies->total(),
+            'count' => $movies->count(),
+            'per_page' => $movies->perPage(),
+            'current_page' => $movies->currentPage(),
+            'total_pages' => $movies->lastPage()
         ], 200);
     }
 
     public function getHalls(int $movieId)
     {
-        $halls = Hall::where('movie_id', $movieId)->get();
+        $halls = Hall::where('movie_id', $movieId)->paginate(20);
+
+        $halls_data = $halls->all();
 
         return response()->json([
-            'halls' => $halls,
+            'halls' => $halls_data,
+            'total' => $halls->total(),
+            'count' => $halls->count(),
+            'per_page' => $halls->perPage(),
+            'current_page' => $halls->currentPage(),
+            'total_pages' => $halls->lastPage()
         ], 200);
     }
 
@@ -44,20 +58,39 @@ class ReceptionistController extends Controller
     {
         $showtimes = Showtime::where('hall_id', $hallId)
         ->where('movie_id', $movieId)
-        ->get();
+        ->paginate(20);
+
+
+        $showtimes_data = $showtimes->all();
 
         return response()->json([
-            'showtimes' => $showtimes,
+            'showtimes' => $showtimes_data,
+            'total' => $showtimes->total(),
+            'count' => $showtimes->count(),
+            'per_page' => $showtimes->perPage(),
+            'current_page' => $showtimes->currentPage(),
+            'total_pages' => $showtimes->lastPage()
         ], 200);
+
+
     }
 
     public function getSeats(int $movieId,int $hallId, int $showtimeId)
     {
-        $seats = Seat::where('movie_id', $movieId)->where('hall_id', $hallId)->where('showtime_id', $showtimeId)->get();
+        $seats = Seat::where('movie_id', $movieId)->where('hall_id', $hallId)->where('showtime_id', $showtimeId)->paginate(20);
+
+
+        $seats_data = $seats->all();
 
         return response()->json([
-            'seats' => $seats,
+            'seats' => $seats_data,
+            'total' => $seats->total(),
+            'count' => $seats->count(),
+            'per_page' => $seats->perPage(),
+            'current_page' => $seats->currentPage(),
+            'total_pages' => $seats->lastPage()
         ], 200);
+
     }
 
     public function reserveSeats(Request $request)
@@ -81,6 +114,8 @@ class ReceptionistController extends Controller
             }
                 $seat->update(['status' => 'reserved']);
                 $seat->refresh();
+
+
 
                 return response()->json(["seat" => $seat], 200);
 

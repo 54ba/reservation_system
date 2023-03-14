@@ -4,7 +4,7 @@
             <li>
                 <div class="movie-card" id="movie-count">
                     <div class="card mb-12">
-                        <p>Count: <span>20</span></p>
+                        <p>Count: <span>{{ movies_count }}</span></p>
                     </div>
                 </div>
             </li>
@@ -25,6 +25,14 @@
                 </div>
             </li>
 
+            <li>
+                <div class="movie-card" id="movie-count">
+                    <div class="card mb-12">
+                        <p>total: <span>{{ movies_total }}</span></p>
+                    </div>
+                </div>
+            </li>
+
 
 
         </ul>
@@ -42,7 +50,7 @@ export default {
     },
 
     name: 'Movies',
-    props: ['movies', 'selected_movie_id'],
+    props: ['movies', 'selected_movie_id', 'movies_count', 'movies_total'],
     methods: {
         selectMovie(movie) {
             this.$emit('movieSelected', movie);

@@ -12,8 +12,8 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Director:</strong> {{ movie.director }}</li>
                             <li class="list-group-item"><strong>Starring:</strong> {{ movie.casting }}</li>
-                            <li class="list-group-item" style="border-radius: 0;"><strong>Release Date:</strong>{{
-                                movie.release_year }}</li>
+                            <li class="list-group-item" style="border-radius: 0;"><strong>Release Date:</strong> {{
+                                movie.release_year }} </li>
                         </ul>
                     </div>
                 </div>

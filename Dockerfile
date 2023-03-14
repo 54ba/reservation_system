@@ -27,7 +27,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     $PHPIZE_DEPS \
     libpcre3-dev \
     libbz2-dev
- 
+
 
 
 RUN apt-get update && apt-get install -y \
@@ -56,10 +56,11 @@ RUN echo 'apc.enable_cli = 1' >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.i
 
 
 
-    
+
 
 # Create a new user
 # RUN adduser --disabled-password --gecos '' developer
+RUN useradd --disabled-password --gecos '' developer || echo "User already exists."
 
 # Add user to the group
 RUN chown -R developer:www-data /var/www
@@ -76,7 +77,7 @@ ENV FPM_PM_MAX_CHILDREN=20 \
     FPM_PM_START_SERVERS=2 \
     FPM_PM_MIN_SPARE_SERVERS=1 \
     FPM_PM_MAX_SPARE_SERVERS=3
-    
+
 #set application environment variables
 
 ENV APP_NAME="TicketPoss" \

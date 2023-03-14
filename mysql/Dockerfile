@@ -7,7 +7,7 @@ COPY /my.cnf /etc/mysql/conf.d/
 # Set the environment variables for the MySQL server
 
 ENV MYSQL_DATABASE=ticketposs \
-    MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+    MYSQL_ALLOW_EMPTY_PASSWORD=1 \
     MYSQL_ROOT_PASSWORD=secret
 
 # Expose the default MySQL port

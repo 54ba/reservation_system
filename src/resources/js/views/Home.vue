@@ -12,25 +12,32 @@ import MovieDetails from '../components/MovieDetails.vue';
 <template>
     <div class="container-fluid  ">
         <Header />
-        <div class="box app row d-flex justify-content-center">
-            <div class="left-panel col-md-4 ">
-                <template v-if="selectedMovie">
-                    <Movies :movies="movies" :selected_movie_id="selectedMovie.id" @movieSelected="handleMovieSelection" />
-                </template>
-                <template v-else>
-                    <Movies :movies="movies" @movieSelected="handleMovieSelection" />
-                </template>
+        <template v-if="selectedMovie">
+            <div class="box app row d-flex justify-content-center">
+
+                <div class="left-panel col-md-4">
+                    <Movies :movies_count="count" :movies_total="total" :movies="movies"
+                        :selected_movie_id="selectedMovie.id" @movieSelected="handleMovieSelection" />
+                </div>
+
+                <div id="right-panel" class="right-panel col-md-6">
+
+                    <MovieDetails :movie="selectedMovie" />
+
+                    <halls :halls="halls" />
+                </div>
             </div>
+        </template>
 
-            <div id="right-panel" v-if="selectedMovie" class="right-panel col-md-6">
-
-                <MovieDetails :movie="selectedMovie" />
-
-                <halls :halls="halls" />
-
-
+        <template v-else>
+            <div class="box app row d-flex justify-content-center">
+                <div class="left-panel col-md-8">
+                    <Movies :movies_count="count" :movies_total="total" :movies="movies"
+                        @movieSelected="handleMovieSelection" />
+                </div>
             </div>
-        </div>
+        </template>
+
     </div>
 </template>
 
@@ -51,6 +58,11 @@ export default {
             selectedMovie: null,
             halls: [],
             movies: [],
+            total: null,
+            count: null,
+            per_page: null,
+            current_page: null,
+            total_pages: null
 
         };
     },
@@ -67,7 +79,14 @@ export default {
             try {
                 const response = await axios.get(process.env.MIX_API_URL + `/receptionist/movies`);
                 this.movies = response.data.movies;
-                return response.data.movies;
+                this.total = response.data.total;
+                this.count = response.data.count;
+                this.per_page = response.data.per_page;
+                this.current_page = response.data.current_page;
+                this.total_pages = response.data.total_pages;
+
+
+                return response.data;
 
             } catch (error) {
                 console.error(error);
@@ -87,9 +106,8 @@ export default {
     },
     async mounted() {
 
-        console.log("movies mounted");
-        const data = await this.getMovies();
-        this.movies = data;
+        console.log("mounted");
+        await this.getMovies();
     }
 
 }

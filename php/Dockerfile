@@ -4,8 +4,8 @@ FROM php:${PHP_VERSION}-fpm
 
 USER root
 
-COPY docker-php-entrypoint   /usr/local/bin/
-COPY docker-php-entrypoint-dev   /usr/local/bin/
+COPY ./docker-php-entrypoint   /usr/local/bin/
+COPY ./docker-php-entrypoint-dev   /usr/local/bin/
 
 
 WORKDIR /var/www/html

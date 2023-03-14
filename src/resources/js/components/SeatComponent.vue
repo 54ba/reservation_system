@@ -3,6 +3,7 @@
         :class="{ 'bg-success': seat.status == 'available', 'bg-danger': seat.status == 'reserved' }">
         <div class="card-body">
             <h5 class="card-title">Seat {{ seat.seat_number }}</h5>
+            <p class="card-title">row {{ seat.row }}</p>
 
             <template v-if="seat.status == 'available'">
                 <button class="btn btn-primary" @click="reserveSeat">reserve</button>

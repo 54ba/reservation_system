@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="halls-details">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -13,7 +13,8 @@
                                 @childHallSelected="handleHallSelection" />
 
                         </ul>
-                        <div v-if="selectedHall">
+                        <div v-if="selectedHall" class="text-center">
+                            <hr>
                             <Showtimes :showtimes="showtimes" />
                         </div>
                     </div>

@@ -3,9 +3,9 @@ FROM php:8.1-fpm
 
 USER root
 
-RUN rm /usr/local/bin/docker-php-entrypoint
-COPY docker-php-entrypoint   /usr/local/bin/
-COPY docker-php-entrypoint-dev   /usr/local/bin/
+#RUN rm /usr/local/bin/docker-php-entrypoint 
+#COPY ./docker-php-entrypoint   /usr/local/bin/
+#COPY ./docker-php-entrypoint-dev   /usr/local/bin/
 
 WORKDIR /var/www/html
 # install necessary packages
@@ -59,16 +59,16 @@ RUN echo 'apc.enable_cli = 1' >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.i
 
 
 # Create a new user
-# RUN adduser --disabled-password --gecos '' developer
-RUN useradd --disabled-password --gecos '' developer || echo "User already exists."
+#RUN adduser --disabled-password --gecos '' developer
+#RUN useradd --disabled-password --gecos '' developer || echo "User already exists."
 
 # Add user to the group
-RUN chown -R developer:www-data /var/www
+#RUN chown -R developer:www-data /var/www
 
 RUN chmod 755 /var/www
 
 # Switch to this user
-USER developer
+#USER developer
 
 
 #add custom php-fpm pool settings, these get written at entrypoint startup

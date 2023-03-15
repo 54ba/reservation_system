@@ -45,6 +45,8 @@ services:
 
     volumes:
       - ./src:/var/www/html
+      - ./php/docker-php-entrypoint:/docker-php-entrypoint
+      - ./php/docker-php-entrypoint-dev:/docker-php-entrypoint-dev
     ports:
       - "9000:9000"
     networks:

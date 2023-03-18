@@ -16,8 +16,8 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     ports:
-      - 8888:80 #http app port
-      - 4433:443 #https app port
+      - "8888:80" #http app port
+      - "4433:443" #https app port
       - "8080:8080" #phpmyadmin port
     volumes:
       - ./src:/var/www/html
@@ -34,8 +34,6 @@ services:
 
     networks:
       ticketposs:
-        # ipv4_address: 172.20.0.20
-
   php:
     build:
       context: .
@@ -131,4 +129,4 @@ services:
       - ticketposs
 
     ports:
-      - '6379:6379'
+      - "6379:6379"

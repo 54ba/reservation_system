@@ -35,10 +35,6 @@ services:
     networks:
       ticketposs:
         # ipv4_address: 172.20.0.20
-      security_opt:
-        label:disable: true
-      cap_add:
-        NET_ADMIN: true
   php:
     build:
       context: .

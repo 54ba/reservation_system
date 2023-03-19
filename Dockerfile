@@ -66,6 +66,8 @@ RUN echo 'apc.enable_cli = 1' >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.i
 #RUN chown -R developer:www-data /var/www
 
 RUN chmod 755 /var/www
+RUN mkdir /var/www/html/storage
+
 RUN chmod -R ugo+rw /var/www/html/storage
 # Switch to this user
 #USER developer

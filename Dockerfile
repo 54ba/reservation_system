@@ -68,7 +68,7 @@ RUN echo 'apc.enable_cli = 1' >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.i
 RUN chmod 755 /var/www
 RUN mkdir /var/www/html/storage
 
-RUN chmod -R 775 storage
+RUN chmod -R 777 ./storage/
 
 
 # Switch to this user

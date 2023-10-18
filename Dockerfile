@@ -69,7 +69,7 @@ RUN chmod 755 /var/www
 RUN mkdir /var/www/html/storage
 
 RUN chmod -R 775 storage
-RUN chmod -R 775 bootstrap/cache 
+
 
 # Switch to this user
 #USER developer

@@ -54,6 +54,7 @@ Ticketposs
 
 | Endpoint                                                                     | description        |
 | ---------------------------------------------------------------------------- | ------------------ |
+| http://84.235.173.124/                                                       | Demo Link          | 
 | http://localhost:8888/                                                       | http app           |
 | http://localhost:4433/                                                       | https app          |
 | http://localhost:8080/                                                       | phpmyadmin         |
